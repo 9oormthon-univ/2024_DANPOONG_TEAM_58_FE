@@ -1,27 +1,13 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Layout from "./components/Layout/Layout";
-import SkinPage from "./pages/SkinPage"; // 스킨 페이지 가져오기
+import { useState } from "react";
+import "./App.css";
+import HomepageLogin from "./pages/HomepageLogin";
 
-
-const App = () => {
+function App() {
   return (
-    <Router>
-      <Routes>
-        <Route
-          path="/main"
-          element={
-            <Layout/>
-          }
-        />
-        <Route
-          path="/SkinPage"
-          element={<SkinPage />} 
-        />
-      </Routes>
-    </Router>
+    <>
+      <HomepageLogin />
+    </>
   );
-};
-
+}
 
 export default App;

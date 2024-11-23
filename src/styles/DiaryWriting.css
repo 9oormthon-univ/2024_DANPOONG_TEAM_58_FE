@@ -1,0 +1,138 @@
+.month {
+  text-align: center;
+  font-size: 30px;
+  margin: 33px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.month button {
+  border: none;
+  background: none;
+  font-size: 30px;
+  cursor: pointer;
+  padding: 5px 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  padding: 10px;
+  text-align: center;
+  font-weight: normal;
+}
+
+td {
+  padding: 10px;
+  text-align: left;
+  border: 1.5px solid rgb(109, 109, 109);
+  height: 63px;
+  box-sizing: border-box;
+}
+td img {
+  width: 30px;
+  margin-left: 10px;
+}
+
+.weekday {
+  font-size: 20px;
+  border-bottom: 1px solid #000;
+}
+
+.calendar-wrapper {
+  background: white;
+}
+.writing-wrapper {
+  background: #c9ceda;
+}
+.writing-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  font-size: 20px;
+  box-sizing: border-box;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+.dropdown-content img {
+  width: 40px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  padding: 10px;
+}
+.dropdown button img {
+  margin-left: 10px;
+  width: 20px;
+}
+.dropdown:hover .dropdown-content {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+}
+.dropdown-container {
+  display: flex;
+  align-items: center;
+}
+.dropdown button {
+  background: white;
+  border-radius: 10px;
+  border: 2px solid black;
+  height: 30px;
+  margin-left: 10px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.seleted-emtion {
+  border: 2px solid rgba(0, 0, 255, 0.2);
+  border-radius: 30%;
+}
+
+.writing-title {
+  margin-top: 30px;
+  padding-bottom: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+  border-bottom: 2px solid black;
+}
+.writing-text {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.writing-text textarea {
+  font-family: "메인폰트";
+  border: none;
+  resize: none;
+  width: 80%;
+  height: 270px;
+  font-size: 25px;
+  line-height: 50px;
+  overflow: hidden;
+  background-color: transparent;
+  background-image: url(../assets/diaryLine.png);
+  background-repeat: no-repeat;
+  background-position: 0% 180%;
+}
+.writing-text textarea:focus {
+  outline: none;
+}
