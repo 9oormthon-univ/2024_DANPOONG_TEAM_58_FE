@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'KOTRA';
+    src: url('./KOTRA-HOPE.ttf') format('truetype'); 
+  }
+  
+@font-face {
+  font-family: 'Basic'; 
+  src: url('./Basic-ExtraBold.ttf') format('truetype'); 
+  font-style: normal;
+}
