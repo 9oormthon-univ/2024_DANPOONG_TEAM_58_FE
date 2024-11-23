@@ -1,29 +1,28 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
+import "../styles/Homepage.css";
 import "../styles/DiaryWriting.css";
 import "../styles/layout.css";
+import skin1 from "../assets/skin1.png";
+import skin2 from "../assets/skin2.png";
+import skin3 from "../assets/skin3.png";
+import skin4 from "../assets/skin4.png";
 
-function DiaryWriting() {
+function Homepage() {
   const [month, setMonth] = useState(new Date().getMonth());
   const [year, setYear] = useState(new Date().getFullYear());
   const [emotion, setEmotion] = useState(1);
   const [writingDate, setWritingDate] = useState(new Date());
   const textRef = useRef();
 
-  const prevMonth = () => {
-    setMonth((prevMonth) => prevMonth - 1);
-    if (month < 1) {
+  useEffect(() => {
+    if (month < 0) {
       setMonth(11);
       setYear((prevYear) => prevYear - 1);
-    }
-  };
-
-  const nextMonth = () => {
-    setMonth((prevMonth) => prevMonth + 1);
-    if (month > 10) {
+    } else if (month > 11) {
       setMonth(0);
       setYear((prevYear) => prevYear + 1);
     }
-  };
+  }, [month]);
 
   const renderCalendar = () => {
     const firstDay = new Date(year, month, 1);
@@ -45,7 +44,7 @@ function DiaryWriting() {
           calendarTdList.push(
             <td key={calendarKey}>
               <h4>{date}</h4>
-              <img src="src\assets\skin1.png" />
+              <img src={skin1} alt="skin" />
             </td>
           );
           date++;
@@ -59,16 +58,8 @@ function DiaryWriting() {
   };
 
   const renderEmotion = () => {
-    switch (emotion) {
-      case 1:
-        return <img src="src\assets\skin1.png" />;
-      case 2:
-        return <img src="src\assets\skin2.png" />;
-      case 3:
-        return <img src="src\assets\skin3.png" />;
-      case 4:
-        return <img src="src\assets\skin4.png" />;
-    }
+    const emotions = [skin1, skin2, skin3, skin4];
+    return <img src={emotions[emotion - 1]} alt={`emotion${emotion}`} />;
   };
 
   const onSave = () => {
@@ -82,94 +73,81 @@ function DiaryWriting() {
   };
 
   return (
-    <>
-      <div className="writing-diary">
-        <div className="diary-frame">
-          <div className="diary-paper-container">
-            <div className="diary-paper calendar-wrapper">
-              {/*  */}
-              <div className="month">
-                <button onClick={prevMonth}>{"<"}</button>
-                {year}년 {month + 1}월<button onClick={nextMonth}>{">"}</button>
-              </div>
-              <table>
-                <tbody id="calendar-table">
-                  <tr className="weekday">
-                    <th>일</th>
-                    <th>월</th>
-                    <th>화</th>
-                    <th>수</th>
-                    <th>목</th>
-                    <th>금</th>
-                    <th>토</th>
-                  </tr>
-                  {renderCalendar()}
-                </tbody>
-              </table>
-            </div>
-
-            <div className="diary-paper writing-wrapper">
-              <div className="writing-header">
-                <span>오늘의 질문</span>
-                <div className="dropdown-container">
-                  <span>오늘의 감정:</span>
-                  <div className="dropdown">
-                    <button>
-                      <svg
-                        width="10"
-                        height="9"
-                        viewBox="0 0 13 9"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M6.90148 7.29802L6.5 7.83887L6.09852 7.29802L2.20141 2.04802L1.60903 1.25H2.60289H10.3971H11.391L10.7986 2.04802L6.90148 7.29802Z"
-                          fill="#D9D9D9"
-                          stroke="black"
-                        />
-                      </svg>
-                      {renderEmotion()}
+    <div>
+      <div className="header"></div>
+      <div className="homepage-wrapper">
+        <div className="sidebar"></div>
+        <div className="homepage-container">
+          <div className="writing-diary">
+            <div className="diary-frame">
+              <div className="diary-paper-container">
+                <div className="diary-paper calendar-wrapper">
+                  <div className="month">
+                    <button onClick={() => setMonth((prev) => prev - 1)}>
+                      {"<"}
                     </button>
-                    <div className="dropdown-content">
-                      <img
-                        onClick={() => setEmotion(1)}
-                        className={emotion == 1 ? "seleted-emtion" : ""}
-                        src="src\assets\skin1.png"
-                      />
-                      <img
-                        onClick={() => setEmotion(2)}
-                        className={emotion == 2 ? "seleted-emtion" : ""}
-                        src="src\assets\skin2.png"
-                      />
-                      <img
-                        onClick={() => setEmotion(3)}
-                        className={emotion == 3 ? "seleted-emtion" : ""}
-                        src="src\assets\skin3.png"
-                      />
-                      <img
-                        onClick={() => setEmotion(4)}
-                        className={emotion == 4 ? "seleted-emtion" : ""}
-                        src="src\assets\skin4.png"
-                      />
+                    {year}년 {month + 1}월
+                    <button onClick={() => setMonth((prev) => prev + 1)}>
+                      {">"}
+                    </button>
+                  </div>
+                  <table>
+                    <tbody id="calendar-table">
+                      <tr className="weekday">
+                        <th>일</th>
+                        <th>월</th>
+                        <th>화</th>
+                        <th>수</th>
+                        <th>목</th>
+                        <th>금</th>
+                        <th>토</th>
+                      </tr>
+                      {renderCalendar()}
+                    </tbody>
+                  </table>
+                </div>
+                <div className="diary-paper writing-wrapper">
+                  <div className="writing-header">
+                    <span>오늘의 질문</span>
+                    <div className="dropdown-container">
+                      <span>오늘의 감정:</span>
+                      <div className="dropdown">
+                        <button>{renderEmotion()}</button>
+                        <div className="dropdown-content">
+                          {[skin1, skin2, skin3, skin4].map((src, index) => (
+                            <img
+                              key={index}
+                              onClick={() => setEmotion(index + 1)}
+                              className={
+                                emotion === index + 1
+                                  ? "selected-emotion"
+                                  : ""
+                              }
+                              src={src}
+                              alt={`emotion${index + 1}`}
+                            />
+                          ))}
+                        </div>
+                      </div>
                     </div>
+                  </div>
+                  <h1 className="writing-title">
+                    요즘 자주 느끼는 감정은 무엇인가요?
+                  </h1>
+                  <div className="writing-text">
+                    <textarea rows={5} ref={textRef}></textarea>
                   </div>
                 </div>
               </div>
-              <h1 className="writing-title">
-                요즘 자주 느끼는 감정은 무엇인가요?
-              </h1>
-              <div className="writing-text">
-                <textarea rows={5} ref={textRef}></textarea>
+              <div className="diary-btn-container">
+                <button onClick={onSave}>저장</button>
               </div>
             </div>
           </div>
-          <div className="diary-btn-container">
-            <button onClick={onSave}>저장</button>
-          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
-export default DiaryWriting;
+export default Homepage;

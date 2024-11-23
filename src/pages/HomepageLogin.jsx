@@ -9,8 +9,7 @@ function HomepageLogin() {
       <div className="homepage-wrapper">
         <div className="sidebar"></div>
         <div className="homepage-container">
-          {/* <img className="diary" src="src\assets\diary1.svg" /> */}
-          <DiaryWriting />
+          <img className="diary" src="src\assets\diary1.svg" />
         </div>
       </div>
     </div>

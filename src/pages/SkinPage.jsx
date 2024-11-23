@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./SkinPage.css";
+import "../styles/SkinPage.css";
 
 const SkinPage = () => {
   const [skins, setSkins] = useState([]);

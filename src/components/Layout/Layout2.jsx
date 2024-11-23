@@ -1,16 +1,16 @@
 import React from "react";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
-import HomepageLogin from '../../pages/HomepageLogin';
+import Homepage from '../../pages/DiaryWriting';
 
-const Layout = ({ }) => {
+const Layout = ({ children }) => {
   return (
     <div style={layoutStyle}>
       <Header /> {/* 위쪽에 고정 */}
       <div style={contentWrapperStyle}>
         <Sidebar /> {/* 왼쪽에 고정 */}
       </div>
-      <HomepageLogin />
+      <Homepage />
     </div>
   );
 };

@@ -35,7 +35,7 @@ const sidebarStyle = {
   backgroundColor: "#fff",
   boxShadow: "2px 0 5px rgba(0, 0, 0, 0.1)",
   position: "fixed",
-  top: "0",
+  top: "11vh",
   left: "0",
   display: "flex",
   flexDirection: "column",
