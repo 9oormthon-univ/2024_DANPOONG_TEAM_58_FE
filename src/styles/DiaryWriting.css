@@ -20,6 +20,10 @@ table {
   border-collapse: collapse;
 }
 
+h4 {
+  margin: 4px;
+}
+
 th {
   padding: 10px;
   text-align: center;
@@ -27,12 +31,12 @@ th {
 }
 
 td {
-  padding: 10px;
   text-align: left;
   border: 1.5px solid rgb(109, 109, 109);
   height: 63px;
-  box-sizing: border-box;
+  margin: 0px;
 }
+
 td img {
   width: 30px;
   margin-left: 10px;

@@ -4,21 +4,9 @@ import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import './index.css';
 import './App.css';
 import Layout from './components/Layout/Layout';
-import Mypage from './components/Layout/Layout2';
-import DiaryWriting from './components/Layout/Header'; //임시
+import Mypage from './components/Layout/Layout'; //임시 마이페이지로 변경하기
+import DiaryWriting from './components/Layout/Layout2';
 import SkinPage from './pages/SkinPage';
-
-// const ProtectedRoute = ({ children }) => {
-//   // 로그인 상태 확인 (authToken 존재 여부로 판단)
-//   const token = localStorage.getItem("authToken");
-
-//   if (!token) {
-//     // 로그인되지 않은 경우 /main으로 리다이렉트
-//     return <Navigate to="/main" replace />;
-//   }
-
-//   return children;
-// };
 
 // 라우터 설정
 const router = createBrowserRouter([
@@ -28,15 +16,15 @@ const router = createBrowserRouter([
   },
   {
     path: '/mypage',
-    element: <Mypage />,
+    element: <Mypage />
   },
   {
     path: '/diary',
-    element: <DiaryWriting />,
+    element: <DiaryWriting />
   },
   {
     path: '/SkinPage',
-    element: <SkinPage />, // 독립적인 스킨 페이지
+    element: <SkinPage />
   },
 ]);
 
