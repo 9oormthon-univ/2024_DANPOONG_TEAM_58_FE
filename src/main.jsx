@@ -4,8 +4,8 @@ import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import './index.css';
 import './App.css';
 import Layout from './components/Layout/Layout';
-import Mypage from './components/Layout/Layout2';
-import DiaryWriting from './components/Layout/Header'; //임시
+import Mypage from './components/Layout/Layout'; //임시 마이페이지로 변경하기
+import DiaryWriting from './components/Layout/Layout2';
 import SkinPage from './pages/SkinPage';
 
 // 라우터 설정
@@ -16,15 +16,15 @@ const router = createBrowserRouter([
   },
   {
     path: '/mypage',
-    element: <Mypage />,
+    element: <Mypage />
   },
   {
     path: '/diary',
-    element: <DiaryWriting />,
+    element: <DiaryWriting />
   },
   {
     path: '/SkinPage',
-    element: <SkinPage />, // 독립적인 스킨 페이지
+    element: <SkinPage />
   },
 ]);
 
